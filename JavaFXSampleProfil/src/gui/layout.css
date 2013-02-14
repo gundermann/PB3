@@ -1,0 +1,23 @@
+.label {
+-fx-text-fill: black;
+-fx-border-color: rgba(255, 255, 255, .80);
+-fx-border-radius: 8;
+-fx-padding: 2 2 2 2;
+-fx-font: bold italic 13pt "LucidaBrightDemiBold";
+}
+.button{
+-fx-text-fill: rgba(17, 145, 213);
+-fx-border-color: rgba(255, 255, 255, .80);
+-fx-border-radius: 8;
+-fx-padding: 6 6 6 6;
+-fx-font: bold italic 20pt "LucidaBrightDemiBold";
+}
+" TODO: replace the whole woring area - add it to the children
+.table-hauptfenster{
+-fx-padding: 10;
+-fx-columns: 10;
+}
+"
+.bearbeitungsfeld{
+-fx-padding: 10;
+}

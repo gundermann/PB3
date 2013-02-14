@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<Vertragsmappe>
+    <AktenzeichenA>4312</AktenzeichenA> 
+    <AktenzeichenB>830100000007</AktenzeichenB> 
+    <BNRZD>010020001001</BNRZD>
+	<Amt>LLUR, Flintbek</Amt> 
+	<FP>830 - Weide-Wirtschaft</FP> 
+	<EUC>214</EUC> 
+	<Erstzahlungsjahr>2010</Erstzahlungsjahr> 
+    <Status>In Zahlung</Status>
+	<Vorgang>
+		<Bezeichnung>VNS-Vertrag</Bezeichnung>
+		<VStatus>Mittel festgelegt</VStatus>
+		<Zuwendungssumme>1000.00</Zuwendungssumme>
+		<Doc>
+		    <Vertragsbeginn>01.01.2010</Vertragsbeginn>
+		    <Vertragslaufzeit>5</Vertragslaufzeit>
+		    <Vertragsabschluss>15.12.2009</Vertragsabschluss>
+		    <Zuwendung>
+		        <BezugsJahr>2010</BezugsJahr>
+		        <PC>10</PC>
+		        <Beihilfesatz>255.00</Beihilfesatz>
+		        <Vertragsflaeche>2.5000</Vertragsflaeche>
+		        <Zuwendungsbetrag>0.00</Zuwendungsbetrag>
+		        <EU-ABB>056287375462</EU-ABB>
+		        <EU-Titel>26345813</EU-Titel>
+		        <Anteil-EU>0.00</Anteil-EU>
+		        <Landestitel>374621548732453</Landestitel>
+		        <Anteil-Land>0.00</Anteil-Land>
+		        <Titel-Sonst></Titel-Sonst>
+		        <Anteil-Sonst>0.00</Anteil-Sonst>
+		    </Zuwendung>
+		     <Zuwendung>
+		        <BezugsJahr>2011</BezugsJahr>
+		        <PC>10</PC>
+		        <Beihilfesatz>255.00</Beihilfesatz>
+		        <Vertragsflaeche>2.5000</Vertragsflaeche>
+		        <Zuwendungsbetrag>637.50</Zuwendungsbetrag>
+		        <EU-ABB>056287375462</EU-ABB>
+		        <EU-Titel>26345813</EU-Titel>
+		        <Anteil-EU>55.00</Anteil-EU>
+		        <Landestitel>374621548732453</Landestitel>
+		        <Anteil-Land>100.00</Anteil-Land>
+		        <Titel-Sonst></Titel-Sonst>
+		        <Anteil-Sonst>0.00</Anteil-Sonst>
+		    </Zuwendung>
+		     <Zuwendung>
+		        <BezugsJahr>2012</BezugsJahr>
+		        <PC>10</PC>
+		        <Beihilfesatz>255.00</Beihilfesatz>
+		        <Vertragsflaeche>2.5000</Vertragsflaeche>
+		        <Zuwendungsbetrag>637.50</Zuwendungsbetrag>
+		        <EU-ABB>056287375462</EU-ABB>
+		        <EU-Titel>26345813</EU-Titel>
+		        <Anteil-EU>55.00</Anteil-EU>
+		        <Landestitel>374621548732453</Landestitel>
+		        <Anteil-Land>100.00</Anteil-Land>
+		        <Titel-Sonst></Titel-Sonst>
+		        <Anteil-Sonst>0.00</Anteil-Sonst>
+		    </Zuwendung>
+		     <Zuwendung>
+		        <BezugsJahr>2013</BezugsJahr>
+		        <PC>10</PC>
+		        <Beihilfesatz>255.00</Beihilfesatz>
+		        <Vertragsflaeche>2.5000</Vertragsflaeche>
+		        <Zuwendungsbetrag>637.50</Zuwendungsbetrag>
+		        <EU-ABB>056287375462</EU-ABB>
+		        <EU-Titel>26345813</EU-Titel>
+		        <Anteil-EU>55.00</Anteil-EU>
+		        <Landestitel>374621548732453</Landestitel>
+		        <Anteil-Land>100.00</Anteil-Land>
+		        <Titel-Sonst></Titel-Sonst>
+		        <Anteil-Sonst>0.00</Anteil-Sonst>
+		    </Zuwendung>
+		     <Zuwendung>
+		        <BezugsJahr>2014</BezugsJahr>
+		        <PC>10</PC>
+		        <Beihilfesatz>255.00</Beihilfesatz>
+		        <Vertragsflaeche>2.5000</Vertragsflaeche>
+		        <Zuwendungsbetrag>637.50</Zuwendungsbetrag>
+		        <EU-ABB>056287375462</EU-ABB>
+		        <EU-Titel>26345813</EU-Titel>
+		        <Anteil-EU>55.00</Anteil-EU>
+		        <Landestitel>374621548732453</Landestitel>
+		        <Anteil-Land>100.00</Anteil-Land>
+		        <Titel-Sonst></Titel-Sonst>
+		        <Anteil-Sonst>0.00</Anteil-Sonst>
+		    </Zuwendung>
+		</Doc>
+	</Vorgang>
+	<Vorgang>
+		<Bezeichnung>Auszahlung</Bezeichnung>
+		<VStatus>Bearbeitung beendet</VStatus>
+		<Zuwendungssumme>400.00</Zuwendungssumme>
+		<Zahlungsbetrag>0.00</Zahlungsbetrag>
+	</Vorgang>
+</Vertragsmappe>
