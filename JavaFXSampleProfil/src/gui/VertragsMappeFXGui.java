@@ -249,7 +249,7 @@ public class VertragsMappeFXGui extends Application{
 
 	private void showVertragsblatt(Document doc) {
 		getBearbeitungsFeld().getChildren().clear();
-		VertragsblattView view = new VertragsblattView(doc);
+		VertragsblattView view = new VertragsblattView(doc, currentMappe);
 		getBearbeitungsFeld().getChildren().add(view);
 	}
 

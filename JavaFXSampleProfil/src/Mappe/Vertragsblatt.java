@@ -42,6 +42,5 @@ public class Vertragsblatt extends Vertrag {
 	}
 	
 	
-	
 
 }
