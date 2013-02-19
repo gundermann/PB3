@@ -1,6 +1,7 @@
 package gui;
 
 
+
 import helper.CommonGuiProblems;
 import Mappe.Document;
 import Mappe.VertragsMappe;
@@ -8,8 +9,10 @@ import Mappe.Vertragsblatt;
 
 
 import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
@@ -47,12 +50,28 @@ public class VertragsblattView extends HBox {
 	}
 
 	private Node initZuwendungenView() {
-		HBox zuwendungen = new HBox();
-		Label headline = new Label("Übersicht je Jahr");
-		zuwendungen.getChildren().add(headline);
+		SplitPane split = new SplitPane();
 		
-		zuwendungen.getChildren().add(new ZuwendungenUebersichtTable(vertragsblatt));
-		return zuwendungen;
+		BorderPane zuwendungen = new BorderPane();
+		Label headline = new Label("Übersicht je Jahr");
+		ZuwendungenDetailTable detailTable = new ZuwendungenDetailTable();
+		ZuwendungenUebersichtTable zuwendungsTable = new ZuwendungenUebersichtTable(vertragsblatt, detailTable);
+		
+		zuwendungen.setTop(headline);
+		zuwendungen.setCenter(zuwendungsTable);
+		
+		BorderPane details = new BorderPane();
+		Label headlineDetails = new Label("Details");
+		
+		details.setTop(headlineDetails);
+		details.setCenter(detailTable);
+		
+		split.setOrientation(Orientation.VERTICAL);
+		split.getItems().add(zuwendungen);
+		split.getItems().add(details);
+		
+		
+		return split;
 	}
 
 	private Node initVertragView() {
