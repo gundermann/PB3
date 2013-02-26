@@ -22,6 +22,8 @@ import javafx.scene.control.SplitPane;
 import javafx.scene.control.ToolBar;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -87,6 +89,18 @@ public class VertragsMappeFXGui extends Application {
 	private ToolBar initToolbar() {
 		ToolBar toolbar = new ToolBar();
 		toolbar.prefWidthProperty().bind(scene.widthProperty());
+		
+		Image imageDrop = new Image("/icons/new.png");
+		Image imagePrint = new Image("/icons/print.png");
+		Image imageOrg = new Image("/icons/getorg.png");
+		Image imageHelp = new Image("/icons/help.png");
+		Button btNew = new Button(null, new ImageView(imageDrop));
+		Button btPrint = new Button(null, new ImageView(imagePrint));
+		btPrint.setDisable(true);
+		Button btDelete = new Button(null, new ImageView(imageOrg));
+		Button btHelp = new Button(null, new ImageView(imageHelp));
+		
+		toolbar.getItems().addAll(btNew, btPrint, btDelete, btHelp);
 		return toolbar;
 	}
 
