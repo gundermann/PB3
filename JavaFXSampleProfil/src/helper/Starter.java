@@ -1,5 +1,6 @@
 package helper;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import Mappe.VertragsMappe;
@@ -13,9 +14,9 @@ public class Starter extends Application{
 	static ArrayList<VertragsMappe> vertragsMappen = new ArrayList<VertragsMappe>();
 	
 	public static void main(String[] args) {
-		SAXLesen xmlReader = new SAXLesen();
-		vertragsMappen.add(xmlReader.mappeLaden(new VertragsMappe()));
+		vertragsMappen = CommonGuiProblems.ladeMappen();
 		launch(args);
+		
 	}
 
 	@Override
@@ -25,7 +26,10 @@ public class Starter extends Application{
 
 	private void gotoVertragsMappenGui(Stage arg0) {
 		try {
-			new VertragsMappeFXController(vertragsMappen.get(0), new Stage());
+			ArrayList<String> verweise = new ArrayList<String>();
+			verweise = CommonGuiProblems.findeVerweise(vertragsMappen.get(0).getAzB());
+			
+			new VertragsMappeFXController(vertragsMappen.get(0),verweise, new Stage());
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 

@@ -25,7 +25,7 @@ public class SAXLesen extends DefaultHandler {
     private Document vorgang = null;
     private Document docInVorgang = null;
     
-    public VertragsMappe mappeLaden(VertragsMappe mappe){
+    public VertragsMappe mappeLaden(VertragsMappe mappe, int number) throws IOException{
     	
     	this.mappe=mappe;
     	
@@ -33,13 +33,11 @@ public class SAXLesen extends DefaultHandler {
     	
     	try { 
     		saxParser = SAXParserFactory.newInstance().newSAXParser(); 
-    		saxParser.parse(new File("xml_file.xml"), this); 
+    		saxParser.parse(new File("mappe"+String.valueOf(number) +".xml"), this); 
     	} catch (ParserConfigurationException pe) { 
     		pe.printStackTrace(); 
     	} catch (SAXException se) { 
     		se.printStackTrace(); 
-    	} catch (IOException ie) { 
-    		ie.printStackTrace(); 
     	} 
     	return mappe;
     }
