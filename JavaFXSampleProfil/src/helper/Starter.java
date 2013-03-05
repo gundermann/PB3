@@ -1,11 +1,9 @@
 package helper;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import Mappe.VertragsMappe;
 import gui.VertragsMappeFXController;
-import gui.VertragsMappeFXGui;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -29,7 +27,7 @@ public class Starter extends Application{
 			ArrayList<String> verweise = new ArrayList<String>();
 			verweise = CommonGuiProblems.findeVerweise(vertragsMappen.get(0).getAzB());
 			
-			new VertragsMappeFXController(vertragsMappen.get(0),verweise, new Stage());
+			new VertragsMappeFXController(vertragsMappen.get(0),verweise);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 

@@ -15,10 +15,10 @@ import Mappe.VertragsMappe;
 
 public class VertragsMappeFXController extends VertragsMappeFXGui{
 
-	public VertragsMappeFXController(VertragsMappe mappe, ArrayList<String> verweise, Stage primaryStage) {
+	public VertragsMappeFXController(VertragsMappe mappe, ArrayList<String> verweise) {
 		super(mappe, verweise);
 		try {
-			super.start(primaryStage);
+			super.start(new Stage());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -77,7 +77,7 @@ public class VertragsMappeFXController extends VertragsMappeFXGui{
 					ArrayList<String> verweise = new ArrayList<String>();
 					verweise = CommonGuiProblems.findeVerweise(selectedDocument.toString());
 					
-					new VertragsMappeFXController(mappe, verweise, new Stage());
+					new VertragsMappeFXController(mappe, verweise);
 				} catch (Exception e) {
 					e.printStackTrace();
 				} 
