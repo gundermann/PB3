@@ -6,9 +6,13 @@ import helper.SAXLesen;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javafx.beans.value.ChangeListener;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import Mappe.Document;
 import Mappe.VertragsMappe;
 
@@ -22,9 +26,38 @@ public class VertragsMappeFXController extends VertragsMappeFXGui{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		initToolbarController();
 		
 		initDocumentTreeController();
 		initVerweiseTreeController();
+	}
+
+	private void initToolbarController() {
+		
+		final Button btGetOrg = ((Button) super.getToolbar().getItems().get(5));
+		final Button btLossOrg = ((Button) super.getToolbar().getItems().get(4));
+		final Label lbOriginal = ((Label) super.getStatusbarOriginalLabel());
+		
+		btGetOrg.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent arg0) {
+				btLossOrg.setDisable(false);
+				btGetOrg.setDisable(true);
+				lbOriginal.setText("");
+			}
+		});
+		
+		btLossOrg.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent arg0) {
+				btLossOrg.setDisable(true);
+				btGetOrg.setDisable(false);
+				lbOriginal.setText("Original");
+			}
+		});
+		
 	}
 
 	private void initVerweiseTreeController() {

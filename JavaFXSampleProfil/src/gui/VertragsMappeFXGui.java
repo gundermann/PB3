@@ -13,11 +13,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Orientation;
 import javafx.scene.Group;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.Separator;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.ToolBar;
 import javafx.scene.control.TreeItem;
@@ -28,6 +30,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 public class VertragsMappeFXGui extends Application {
@@ -35,7 +38,7 @@ public class VertragsMappeFXGui extends Application {
 	Group root;
 	Scene scene;
 	VertragsMappe currentMappe = new VertragsMappe();
-	HashMap guiElemente = new HashMap();
+	HashMap<String, Parent> guiElemente = new HashMap<String, Parent>();
 	ArrayList<String> verweise = new ArrayList<String>();
 
 	public VertragsMappeFXGui(VertragsMappe mappe, ArrayList<String> verweise) {
@@ -54,6 +57,8 @@ public class VertragsMappeFXGui extends Application {
 		GridPane menuPane = new GridPane();
 		MenuBar menu = initMenu();
 		ToolBar toolbar = initToolbar();
+		guiElemente.put("Toolbar", toolbar);
+		
 		menuPane.add(menu, 0, 0);
 		menuPane.add(toolbar, 0, 1);
 
@@ -90,34 +95,55 @@ public class VertragsMappeFXGui extends Application {
 		ToolBar toolbar = new ToolBar();
 		toolbar.prefWidthProperty().bind(scene.widthProperty());
 		
-		Image imageDrop = new Image("/icons/new.png");
-		Image imagePrint = new Image("/icons/print.png");
-		Image imageOrg = new Image("/icons/getorg.png");
-		Image imageHelp = new Image("/icons/help.png");
-		Button btNew = new Button(null, new ImageView(imageDrop));
+		Image imageDrop = new Image("/Icons/TbCopy.gif");
+		Image imagePrint = new Image("/Icons/TbPrint.gif");
+		Image imageOrg = new Image("/Icons/TbOriginal.gif");
+		Image imageGetOrg = new Image("/Icons/TbKopie.gif");
+		Image imageHelp = new Image("/Icons/TbHelp.gif");
+		Button btDrop = new Button(null, new ImageView(imageDrop));
 		Button btPrint = new Button(null, new ImageView(imagePrint));
 		btPrint.setDisable(true);
-		Button btDelete = new Button(null, new ImageView(imageOrg));
+		Button btLossOrg = new Button(null, new ImageView(imageOrg));
+		Button btGetOrg = new Button(null, new ImageView(imageGetOrg));
+		btGetOrg.setDisable(true);
 		Button btHelp = new Button(null, new ImageView(imageHelp));
 		
-		toolbar.getItems().addAll(btNew, btPrint, btDelete, btHelp);
+		toolbar.getItems().addAll(btDrop, new Separator(), btPrint, new Separator(), btLossOrg, btGetOrg, new Separator(), btHelp);
 		return toolbar;
 	}
 
 	private HBox initStatusbar() {
 		HBox statusbar = new HBox();
-		SplitPane split = new SplitPane();
+//		SplitPane split = new SplitPane();
+		statusbar.getStyleClass().add("statusbar");
 
+		Image imgAbbrechen = new Image("/Icons/TbRefresh20x20.gif");
+		
 		Label status = new Label(currentMappe.getStatus());
+		status.setTextAlignment(TextAlignment.RIGHT);
+		status.getStyleClass().add("statusLabel");
+		status.setMinWidth(300);
 		Label mappe = new Label(currentMappe.getFp());
-		Button btAbbrechen = new Button("Abbrechen");
-
+		mappe.setTextAlignment(TextAlignment.RIGHT);
+		mappe.getStyleClass().add("statusLabel");
+		mappe.setMinWidth(300);
+		Label original = new Label();
+		original.setTextAlignment(TextAlignment.RIGHT);
+		original.setText("Original");
+		original.getStyleClass().add("statusLabel");
+		original.setMinWidth(100);
+		Button btAbbrechen = new Button(null, new ImageView(imgAbbrechen));
+		btAbbrechen.getStyleClass().add("statusButton");
+		
+		guiElemente.put("StatusBarOriginalLabel", original);
+		
+		statusbar.getChildren().addAll(btAbbrechen, mappe, status, original);
 		// split.setDividerPositions(0.3);
-		split.getItems().addAll(status, mappe, btAbbrechen);
+//		split.getItems().addAll(status, mappe, btAbbrechen);
 		// split.prefWidthProperty().bind(scene.widthProperty());
-		statusbar.getChildren().add(split);
+//		statusbar.getChildren().add(split);
 		// statusbar.prefWidthProperty().bind(scene.widthProperty());
-		statusbar.minHeight(100);
+//		statusbar.minHeight(100);
 		return statusbar;
 	}
 
@@ -153,7 +179,7 @@ public class VertragsMappeFXGui extends Application {
 	private VBox initDocumentBaum() {
 		VBox documentBox = new VBox();
 
-		TreeView documentTree = new TreeView();
+		TreeView<String> documentTree = new TreeView<String>();
 		TreeItem documentRoot = new TreeItem();
 		documentRoot.setValue(currentMappe.getFp());
 		documentTree.setRoot(documentRoot);
@@ -225,7 +251,6 @@ public class VertragsMappeFXGui extends Application {
 	}
 
 	public void showMappe() {
-		HBox inhalt = getBearbeitungsFeld();
 		getBearbeitungsFeld().getChildren().clear();
 
 		getBearbeitungsFeld().getChildren().add(new MappenView(currentMappe));
@@ -267,9 +292,16 @@ public class VertragsMappeFXGui extends Application {
 	public TreeView getVerweiseTree() {
 		return (TreeView) guiElemente.get("Verweise");
 	}
+	
+	public ToolBar getToolbar(){
+		return (ToolBar) guiElemente.get("Toolbar");
+	}
 
 	public VertragsMappe getCurrentMappe() {
 		return currentMappe;
 	}
 
+	public Label getStatusbarOriginalLabel(){
+		return (Label) guiElemente.get("StatusBarOriginalLabel");
+	}
 }

@@ -1,10 +1,9 @@
 .label {
 -fx-text-fill: black;
--fx-border-color: rgba(255, 255, 255, .80);
--fx-border-radius: 8;
 -fx-padding: 2 2 2 2;
 -fx-font: bold italic 13pt "LucidaBrightDemiBold";
 }
+
 .button{
 -fx-text-fill: rgba(17, 145, 213);
 -fx-border-color: rgba(225, 255, 255, .80);
@@ -21,3 +20,21 @@
 .bearbeitungsfeld{
 -fx-padding: 15;
 }
+
+.statusButton{
+-fx-padding: 0;
+-fx-border-radius: 0;
+-fx-background-color:white;
+}
+
+.statusLabel{
+-fx-background-color: null; 
+-fx-border-width: 3; 
+-fx-border-color: black grey grey black; 
+-fx-border-style: solid line-join miter 45;
+}
+
+.statusbar{
+-fx-background-color: lightgrey;
+}
+
