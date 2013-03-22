@@ -101,12 +101,17 @@ public class VertragsMappeFXGui extends Application {
 		Image imageGetOrg = new Image("/Icons/TbKopie.gif");
 		Image imageHelp = new Image("/Icons/TbHelp.gif");
 		Button btDrop = new Button(null, new ImageView(imageDrop));
+		btDrop.getStyleClass().add("barbutton");
 		Button btPrint = new Button(null, new ImageView(imagePrint));
+		btPrint.getStyleClass().add("barbutton");
 		btPrint.setDisable(true);
 		Button btLossOrg = new Button(null, new ImageView(imageOrg));
+		btLossOrg.getStyleClass().add("barbutton");
 		Button btGetOrg = new Button(null, new ImageView(imageGetOrg));
+		btGetOrg.getStyleClass().add("barbutton");
 		btGetOrg.setDisable(true);
 		Button btHelp = new Button(null, new ImageView(imageHelp));
+		btHelp.getStyleClass().add("barbutton");
 		
 		toolbar.getItems().addAll(btDrop, new Separator(), btPrint, new Separator(), btLossOrg, btGetOrg, new Separator(), btHelp);
 		return toolbar;

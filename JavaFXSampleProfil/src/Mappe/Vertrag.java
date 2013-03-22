@@ -1,6 +1,5 @@
 package Mappe;
 
-import java.awt.List;
 import java.util.ArrayList;
 
 public class Vertrag extends Document{
@@ -35,6 +34,18 @@ public class Vertrag extends Document{
 	}
 	public void setZuwendung(float zuwendung) {
 		this.zuwendung = zuwendung;
+	}
+
+	public void changeState(String text) {
+		if(text.equals("Bearbeitung beginnen")){
+			status = "Bearbeitung begonnen";
+		}
+		else if(text.equals("Mittel festlegen")){
+			status = "Mittel festgelegt";
+		}
+		else{
+			status = "Bearbeitung beendet";
+		}
 	}
 	
 	
