@@ -19,21 +19,21 @@ public class TeilvorgaeneTableData {
 
 	public TeilvorgaeneTableData(Document teilvorgang) {
 		if (teilvorgang instanceof Vertrag) {
-			this.TeilvorgaeneTableData((Vertrag) teilvorgang);
+			this.initTeilvorgaeneTableData((Vertrag) teilvorgang);
 		}
 		if (teilvorgang instanceof Auszahlung) {
-			this.TeilvorgaeneTableData((Auszahlung) teilvorgang);
+			this.initTeilvorgaeneTableData((Auszahlung) teilvorgang);
 		}
 	}
 
-	private void TeilvorgaeneTableData(Auszahlung teilvorgang) {
+	private void initTeilvorgaeneTableData(Auszahlung teilvorgang) {
 		this.vorgang = new SimpleStringProperty(teilvorgang.getTitel());
 		this.status = new SimpleStringProperty(teilvorgang.getStatus());
 		this.zuwendungssumme = new SimpleStringProperty(String.valueOf(teilvorgang.getZuwendungssumme()));
 		this.zahlungsbetrag = new SimpleStringProperty(String.valueOf(teilvorgang.getZahlungsbetrag()));
 	}
 
-	public void TeilvorgaeneTableData(Vertrag teilvorgang) {
+	public void initTeilvorgaeneTableData(Vertrag teilvorgang) {
 		this.vorgang = new SimpleStringProperty(teilvorgang.getTitel());
 		this.status = new SimpleStringProperty(teilvorgang.getStatus());
 		this.zuwendungssumme = new SimpleStringProperty(String.valueOf(teilvorgang.getZuwendung()));

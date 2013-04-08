@@ -263,14 +263,14 @@ public class VertragsMappeFXGui extends Application {
 	}
 
 	public void showDocument(Document doc) {
-		if (doc instanceof Vertrag) {
-			showVertrag(doc);
-		}
-		if (doc instanceof Auszahlung) {
-			showAuszahlung(doc);
-		}
 		if (doc instanceof Vertragsblatt) {
 			showVertragsblatt(doc);
+		}
+		else if (doc instanceof Vertrag) {
+			showVertrag(doc);
+		}
+		else if (doc instanceof Auszahlung) {
+			showAuszahlung(doc);
 		}
 	}
 

@@ -18,6 +18,7 @@ import javafx.event.EventType;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Labeled;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -30,13 +31,14 @@ public class VertragsView extends BorderPane {
 	private String status;
 	private Map<String, Button> controlbuttons = new HashMap<String, Button>();
 	private Vertrag currentTV;
+	private GridPane grid;
 	
 	public VertragsView(Document tv) {
 		currentTV = (Vertrag) tv;
 		
 		
-		GridPane currentStateGraph = initStates();
-		this.setCenter(currentStateGraph);
+		grid = initStates();
+		this.setCenter(grid);
 
 		HBox controlPane = initButtons();
 		initController();
@@ -101,9 +103,13 @@ public class VertragsView extends BorderPane {
 		GridPane states = new GridPane();
 		
 		Label initialisiert = new Label("Initialisiert");
+		initialisiert.setId("state");
 		Label begonnen = new Label("Bearbeitung begonnen");
+		begonnen.setId("state");
 		Label festgelet = new Label("Mittel festgelegt");
+		festgelet.setId("settedState");
 		Label beendet = new Label("Bearbeitung beendet");
+		beendet.setId("state");
 		
 		states.add(initialisiert, 0, 0);
 		states.add(begonnen, 0, 1);
@@ -132,9 +138,20 @@ public class VertragsView extends BorderPane {
 		}
 		
 	}
+	
+	private void changeStateID(String state){
+		for (Node label : grid.getChildren()){
+			if(((Label) label).getText().equals(state)){
+				label.setId("settedState");
+			}
+			else{
+				label.setId("state");
+			}
+		}
+	}
 
 	private void setInitialisiert() {
-		
+		changeStateID("Initialisiert");
 		
 		
 		controlbuttons.get("first").setText("Bearbeitung beginnen");
@@ -142,19 +159,21 @@ public class VertragsView extends BorderPane {
 	}
 
 	private void setBegonnen() {
-		
+		changeStateID("Bearbeitung begonnen");
 		
 		controlbuttons.get("first").setText("Mittel festlegen");
 		controlbuttons.get("sec").setVisible(false);
 	}
 
 	private void setFestgelegt() {
+		changeStateID("Mittel festgelegt");
 		controlbuttons.get("first").setText("Bearbeitung beginnen");
 		controlbuttons.get("sec").setVisible(true);
 		controlbuttons.get("sec").setText("Bearbeitung beenden");
 	}
 
 	private void setBeendet() {
+		changeStateID("Bearbeitung beendet");
 		controlbuttons.get("first").setText("Bearbeitung beginnen");
 		controlbuttons.get("sec").setVisible(false);
 	}

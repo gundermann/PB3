@@ -1,24 +1,19 @@
 package gui;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 import Mappe.Document;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 
 public class TeilvorgaengeTable extends HBox {
 
-	private SimpleStringProperty titel;
 	private ArrayList<Document> teilvorgaenge;
 	
 	public TeilvorgaengeTable(ArrayList<Document> teilvorgaenge) {
@@ -28,15 +23,15 @@ public class TeilvorgaengeTable extends HBox {
 
 	private void initTable() {
 		TableView<TeilvorgaeneTableData> table = new TableView<TeilvorgaeneTableData>();
-		TableColumn vorgangCol = new TableColumn("Vorgang");
+		TableColumn<TeilvorgaeneTableData, String> vorgangCol = new TableColumn<TeilvorgaeneTableData, String>("Vorgang");
 		vorgangCol.setCellValueFactory(new PropertyValueFactory<TeilvorgaeneTableData, String>("vorgang"));
-		TableColumn statusCol = new TableColumn("Status");
+		TableColumn<TeilvorgaeneTableData, String> statusCol = new TableColumn<TeilvorgaeneTableData, String>("Status");
 		statusCol.setCellValueFactory(new PropertyValueFactory<TeilvorgaeneTableData, String>("status"));
-		TableColumn zuwendungssummeCol = new TableColumn("Zuwendungs-\nsumme [EUR]");
+		TableColumn<TeilvorgaeneTableData, String> zuwendungssummeCol = new TableColumn<TeilvorgaeneTableData, String>("Zuwendungs-\nsumme [EUR]");
 		zuwendungssummeCol.setCellValueFactory(new PropertyValueFactory<TeilvorgaeneTableData, String>("zuwendungssumme"));
-		TableColumn zahlungsbetragCol = new TableColumn("Zahlungs-\nbetrag [EUR]");
+		TableColumn<TeilvorgaeneTableData, String> zahlungsbetragCol = new TableColumn<TeilvorgaeneTableData, String>("Zahlungs-\nbetrag [EUR]");
 		zahlungsbetragCol.setCellValueFactory(new PropertyValueFactory<TeilvorgaeneTableData, String>("zahlungsbetrag"));
-		TableColumn zahlungdatumCol = new TableColumn("Zahlungs-\ndatum");
+		TableColumn<TeilvorgaeneTableData, String> zahlungdatumCol = new TableColumn<TeilvorgaeneTableData, String>("Zahlungs-\ndatum");
 		zahlungdatumCol.setCellValueFactory(new PropertyValueFactory<TeilvorgaeneTableData, String>("zahlungsdatum"));
 		table.getColumns().addAll(vorgangCol, statusCol, zuwendungssummeCol, zahlungsbetragCol, zahlungdatumCol);
 		
@@ -56,7 +51,7 @@ public class TeilvorgaengeTable extends HBox {
 		super.getChildren().add(table);
 	}
 
-	private void initLines(TableView table) {
+	private void initLines(TableView<TeilvorgaeneTableData> table) {
 		ObservableList<TeilvorgaeneTableData> vorgaenge = FXCollections.observableArrayList();
 		for(Document teilvorgang : teilvorgaenge){
 			vorgaenge.add(new TeilvorgaeneTableData(teilvorgang));
