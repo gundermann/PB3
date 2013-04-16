@@ -1,7 +1,11 @@
 package gui;
 
+import helper.CommonGuiProblems;
+
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.swing.GroupLayout.Alignment;
 
 import Mappe.Document;
 import Mappe.Vertrag;
@@ -24,6 +28,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.shape.LineTo;
+import javafx.scene.text.TextAlignment;
 
 public class VertragsView extends BorderPane {
 
@@ -104,17 +111,27 @@ public class VertragsView extends BorderPane {
 		
 		Label initialisiert = new Label("Initialisiert");
 		initialisiert.setId("state");
+		initialisiert.setPrefWidth(350);
 		Label begonnen = new Label("Bearbeitung begonnen");
 		begonnen.setId("state");
+		begonnen.setPrefWidth(350);
 		Label festgelet = new Label("Mittel festgelegt");
 		festgelet.setId("settedState");
+		festgelet.setPrefWidth(350);
 		Label beendet = new Label("Bearbeitung beendet");
 		beendet.setId("state");
+		beendet.setPrefWidth(350);
 		
-		states.add(initialisiert, 0, 0);
-		states.add(begonnen, 0, 1);
-		states.add(festgelet, 0, 2);
-		states.add(beendet, 0, 3);
+		states.add(initialisiert, 0, 0, 2, 1);
+		states.add(CommonGuiProblems.ArrowDown(50, 350), 0, 1, 1, 1);
+		states.add(begonnen, 0, 2, 2, 1);
+		states.add(CommonGuiProblems.ArrowJumpUp(50, 1), 3, 2, 1, 5);
+		states.add(CommonGuiProblems.ArrowDown(50, 350), 0, 3, 1, 1);
+		states.add(CommonGuiProblems.ArrowUp(50, 350), 1, 3, 1, 1);
+		states.add(festgelet, 0, 4, 2, 1);
+		states.add(CommonGuiProblems.ArrowDown(50, 350), 0, 5, 1, 1);
+		states.add(beendet, 0, 6, 2, 1);
+		
 		
 		return states;
 	}
@@ -141,11 +158,13 @@ public class VertragsView extends BorderPane {
 	
 	private void changeStateID(String state){
 		for (Node label : grid.getChildren()){
+			if(label instanceof Label){
 			if(((Label) label).getText().equals(state)){
 				label.setId("settedState");
 			}
 			else{
 				label.setId("state");
+			}
 			}
 		}
 	}

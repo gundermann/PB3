@@ -7,11 +7,12 @@ import gui.VertragsMappeFXController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-public class Starter extends Application{
+public class JavaFXSampleProfil extends Application{
 
 	static ArrayList<VertragsMappe> vertragsMappen = new ArrayList<VertragsMappe>();
 	
 	public static void main(String[] args) {
+		
 		vertragsMappen = CommonGuiProblems.ladeMappen();
 		launch(args);
 		

@@ -24,7 +24,7 @@ public MappenView(VertragsMappe mappe){
 	Label lbazA = new Label("AktenzeichenA:");
 	Label lbazB = new Label("AktenzeichenB:");
 	Label lbamt = new Label("Amt:");
-	Label lbfp = new Label("Fï¿½rderprogramm:");
+	Label lbfp = new Label("Förderprogramm:");
 	Label lbeuc = new Label("EU-Code");
 	Label lberstauszahlung = new Label("Erstauszahlungsjahr:");
 	Label lbstatus = new Label("Status:");
@@ -63,7 +63,7 @@ public MappenView(VertragsMappe mappe){
 	CommonGuiProblems.disableFields(innerGrid);
 	
 	GridPane border = new GridPane();
-	Label teilvorgaengeHeader = new Label("Teilvorgï¿½nge");
+	Label teilvorgaengeHeader = new Label("Teilvorgänge");
 	HBox tableTeilvorgaenge = new TeilvorgaengeTable(currentMappe.getTeilvorgaenge());
 //	tableTeilvorgaenge.prefWidth(scene.getWidth()*0.6);
 	border.add(teilvorgaengeHeader, 0, 0);

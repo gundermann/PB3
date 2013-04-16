@@ -19,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.Separator;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.ToolBar;
@@ -157,7 +158,7 @@ public class VertragsMappeFXGui extends Application {
 		// page 58
 		// Horizontaler Split
 		SplitPane horizontalerSplit = new SplitPane();
-		horizontalerSplit.setDividerPositions(0.3, 0.7);
+		horizontalerSplit.setDividerPositions(0.3);
 
 		SplitPane vertikalerSplit = new SplitPane();
 		vertikalerSplit.setOrientation(Orientation.VERTICAL);
@@ -242,10 +243,20 @@ public class VertragsMappeFXGui extends Application {
 
 		Menu bearbeitung = new Menu("Bearbeiten");
 		menu.getMenus().add(bearbeitung);
+		
+		MenuItem drucken = new MenuItem("Drucken");
+		MenuItem seitenansicht = new MenuItem("Seitenansicht");
+		MenuItem schliessen = new MenuItem("Schlieﬂen");
 
+		bearbeitung.getItems().addAll(drucken, seitenansicht, schliessen);
+		
 		Menu hilfe = new Menu("Hilfe");
 		menu.getMenus().add(hilfe);
+		
+		MenuItem sample = new MenuItem("JavaFX sample");
 
+		hilfe.getItems().add(sample);
+		
 		menu.prefWidthProperty().bind(scene.widthProperty());
 
 		return menu;
